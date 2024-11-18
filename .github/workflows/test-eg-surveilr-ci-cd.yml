@@ -52,7 +52,7 @@ jobs:
         # SSH into the production server and execute commands
         ssh -p 22 -o StrictHostKeyChecking=no -t ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
           # Pull the latest Docker image from GHCR
-          docker pull ghcr.io/${{ github.repository }}/surveilr-app:latest
+         # docker pull ghcr.io/${{ github.repository }}/surveilr-app:latest
           docker pull ghcr.io/niba-nazar/surveilr-app:latest
  
           # Stop and remove the old container if it exists
