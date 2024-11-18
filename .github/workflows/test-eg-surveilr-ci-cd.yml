@@ -26,7 +26,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ github.repository }}/surveilr-app:latest .
+        docker build -t ghcr.io/niba-nazar/surveilr-app:latest .
 
     - name: Log in to GitHub Container Registry
       uses: docker/login-action@v2
@@ -37,26 +37,26 @@ jobs:
 
     - name: Push Docker image to GHCR
       run: |
-        docker push ghcr.io/${{ github.repository }}/surveilr-app:latest
+        docker push ghcr.io/niba-nazar/surveilr-app:latest
 
- # deploy:
-#    runs-on: ubuntu-latest
-#    needs: build
+# deploy:
+#   runs-on: ubuntu-latest
+#   needs: build
 
- #   steps:
-   # - name: SSH into the production server
-  #    uses: appleboy/ssh-action@v0.1.1
-   #   with:
-   #     host: ${{ secrets.SERVER_HOST }}
-    #    username: ${{ secrets.SERVER_USER }}
-   #     key: ${{ secrets.SERVER_SSH_KEY }}
-   #     script: |
-          # Pull the latest Docker image from GHCR
-     #     docker pull ghcr.io/${{ github.repository }}/surveilr-app:latest
-
-          # Stop and remove the old container if it exists
-    #      docker ps -q -f name=surveilr-runtime | xargs -r docker stop
-       #   docker ps -a -q -f name=surveilr-runtime | xargs -r docker rm
-
-          # Start the new container using Docker Compose
-     #     docker-compose up -d
+#   steps:
+#   - name: SSH into the production server
+#     uses: appleboy/ssh-action@v0.1.1
+#     with:
+#       host: ${{ secrets.SERVER_HOST }}
+#       username: ${{ secrets.SERVER_USER }}
+#       key: ${{ secrets.SERVER_SSH_KEY }}
+#       script: |
+#         # Pull the latest Docker image from GHCR
+#         docker pull ghcr.io/niba-nazar/surveilr-app:latest
+#
+#         # Stop and remove the old container if it exists
+#         docker ps -q -f name=surveilr-runtime | xargs -r docker stop
+#         docker ps -a -q -f name=surveilr-runtime | xargs -r docker rm
+#
+#         # Start the new container using Docker Compose
+#         docker-compose up -d
