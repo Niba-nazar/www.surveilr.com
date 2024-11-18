@@ -38,8 +38,9 @@ jobs:
 
     - name: Push Docker image to GHCR
       run: |
-        #docker push ghcr.io/${{ github.repository }}/surveilr-app:latest
+       # docker push ghcr.io/${{ github.repository }}/surveilr-app:latest
         docker push ghcr.io/niba-nazar/surveilr-app:latest 
+
       
   deploy:
     runs-on: ubuntu-latest
